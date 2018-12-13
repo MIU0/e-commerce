@@ -1,0 +1,43 @@
+.mymoney{
+  width: 682rpx;
+  height: 342rpx;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.allmoney{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 68rpx;
+  margin-bottom: 26rpx;
+  
+}
+.allmoney_f{
+font-size: 40rpx;
+}
+.allmoney_p{
+font-size: 60rpx;
+}
+.mybalance{
+ color: #fff;
+ font-size: 28rpx;
+
+}
+.recharge{
+  background-color: #fabebe;
+  color:white;
+  width: 183rpx;
+  height: 45rpx;
+  margin-top: 38rpx;
+  line-height:45rpx; 
+  font-size: 29rpx;
+  text-align: center;
+border-radius: 10rpx;
+}

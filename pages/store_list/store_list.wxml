@@ -1,0 +1,120 @@
+<!-- <image class='topp' src='/images/store/topp.png'></image> -->
+<view>
+
+  <scroll-view scroll-y class="scroll_view" scroll-top="{{scrollTop}}" scroll-with-animation='true' bindscroll="toTop">
+    <view class='scroll_content'>
+      <scroll-view scroll-y="true" style="height:90vh;width:196rpx;">
+        <view class="swiper-tab">
+          <view class="swiper-tab-list {{currentTab ==index? 'on' : ''}} " data-current="{{currentData}}" bindtap="swichNav" data-index='{{index}}' wx:for='{{swiper_tab_infor}}' wx:key data-id='{{item.type_id}}'>{{item.type_name}}</view>
+
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y="true" style="height:100vh;" bindscrolltolower="loadingMore" >
+        <view class='swiper_right' wx:if='{{current == current}}'>
+
+          <view class='shop_item ' wx:for='{{shop_lists}}' wx:key bindtap="store_details" data-id='{{item.commodity_id}}' id='{{index}}'>
+            <view class='shop_item_left'>
+              <view class='shop_item_left_img'>
+                <image src='{{item.img_src}}' mode="aspectFill" />
+              </view>
+            </view>
+            <view class='shop_item_right'>
+              <view class='shop_item_right_name'>{{item.commodity_name}}</view>
+              <view class='shop_item_right_brief'>{{item.commodity_introduction}}</view>
+              <view class='shop_item_right_sale_num'>
+                <view class='shop_item_right_sale'>月售:</view>
+                <view class='shop_item_right_num'>{{item.mouth_num}}个</view>
+              </view>
+              <view class='shop_price_add'>
+                <view class='shop_price'>
+                  <view class='shop_price_icon'>￥</view>
+                  <view class='shop_price_num'>{{item.price}}</view>
+                </view>
+                <!-- <view class="shop_subtract_add ">
+                  <view class="shop_subtract shop_common {{item.comm_num==0 ?'none':''}}" catchtap='reduce' data-commodity_id='{{item.commodity_id}}' data-index='{{index}}' data-price='{{item.price}}' data-comm_num='{{item.comm_num}}'>
+                    <image src='../../images/store/subtract.png' />
+                  </view>
+                  <view class="shop_num {{item.comm_num==0 ?'none':''}}">{{item.comm_num}}</view>
+                  <view class="shop_add  " catchtap='add' data-price='{{item.price}}' data-commodity_id='{{item.commodity_id}}' data-comm_num='{{item.comm_num}}' data-index='{{index}}'>
+                    <image src='../../images/store/add.png' />
+                  </view>
+                </view> -->
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="more_data" wx:if="{{inforHasMore== '0'}}">-- 没有更多 --</view>
+      </scroll-view>
+
+    </view>
+
+    <!-- 购物车(底部) -->
+    <!-- <view class='shopping_cart'>
+      <view class='shopping_cart_left'>
+        <view class="shopping_cart_left_img " wx:if='{{sum.c_shop_sum==0}}'>
+          <image src='../../images/store/cart1.png' />
+        </view>
+        <view class="shopping_cart_left_img " bindtap='popup' wx:if='{{sum.c_shop_sum!=0}}'>
+          <image src='../../images/store/cart1.png' />
+        </view>
+        <view class='shopping_cart_circle'>
+
+          <text class='shopping_cart_circle_num' style=''>{{sum.c_shop_sum}}</text>
+        </view>
+
+        <view class='shopping_cart_left_price'>￥{{sum.c_price_sum}}</view>
+
+      </view>
+      <button class="shopping_cart_right1 " wx:if='{{sum.c_shop_sum<1}}' disabled bindtap='create_order'>未选购</button>
+      <button class="shopping_cart_right " wx:if='{{sum.c_shop_sum>0}}' bindtap='create_order'>去买单</button>
+    </view> -->
+
+    <!-- 弹出层 -->
+    <view class='mask' catchtouchmove="preventTouchMove" catchtap='closemask' wx:if='{{windows_out}}'></view>
+    <view class='tips_window' wx:if='{{windows_out}}'>
+      <view class='tips_window_top'>
+        <view class='tips_window_top_left'>已选择商品</view>
+        <view class='tips_window_top_right' bindtap='clear_shop'>
+          <view class='tips_window_top_img'>
+            <image src='../../images/store/empty.png' />
+          </view>
+          <view class='tips_window_top_text'>清空</view>
+        </view>
+      </view>
+      <view class="tips_window_list " wx:for='{{buy}}' wx:key data-id='{{item.commodity_id}}' id='{{index}}'>
+        <view class="tips_window_list_item ">
+          <view class="tips_window_list_item_name ">{{item.commodity_name}}</view>
+          <view class="tips_window_list_item_right ">
+            <view class='shop_price_add'>
+              <view class='shop_price'>
+                <view class="shop_price_icon">￥</view>
+                <view class="shop_price_num ">{{item.commodity_price}}</view>
+              </view>
+              <view class='tips_shop_subtract_add'>
+                <view class="tips_shop_subtract tips_shop_common" catchtap='sub_shop' data-price='{{item.commodity_price}}' data-commodity_id='{{item.commodity_id}}' data-index='{{index}}' data-comm_num='{{item.comm_num}}'>
+                  <image src='../../images/store/subtract.png' />
+                </view>
+                <view class="tips_shop_num ">{{item.comm_num}}</view>
+                <view class="tips_shop_add tips_shop_common " data-price='{{item.commodity_price}}' catchtap='add_shop' data-commodity_id='{{item.commodity_id}}' data-comm_num='{{item.comm_num}}' data-index='{{index}}'>
+                  <image src='../../images/store/add.png' />
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 包装盒 -->
+      <!-- <view class="tips_box_content" wx:if="{{sum.c_shop_sum!=0}}" >
+        <view class='tips_box'>
+          <view class='tips_box_left'>包装盒</view>
+          <view class='tips_box_right'>
+            <view class='shop_price'>
+              <view class='shop_price_icon'>￥</view>
+              <view class='shop_price_num'>{{packing_price}}</view>
+            </view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+  </scroll-view>
+</view>

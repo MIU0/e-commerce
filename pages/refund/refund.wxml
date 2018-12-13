@@ -1,0 +1,107 @@
+<view class='refund_all'>
+  <view class='accounts_status' style="background-image: url('https://www.vimi66.com/shop/upload/act_img//20180929140950234435.png') ">
+    <view class='accounts_status_top'>
+      <view class='accounts_status_text'  wx:if='{{refund_information.status==2}}' >申请退款</view>
+      <view class='accounts_status_text' wx:if='{{refund_information.status==8}}'>退款中</view>
+      <view class='accounts_status_text'wx:if='{{refund_information.status==9}}'>退款成功</view>
+      <view class='accounts_status_text'wx:if='{{refund_information.status==10}}'>退款失败</view>
+      <view class='accounts_status_tips'>商家审核完毕立即退款</view>
+    </view>
+  </view>
+  <view class='refund_price'>
+    <view>退款总金额</view>
+    <view>￥{{refund_information.real_price}}</view>
+  </view>
+  <view class='refund_reason' wx:if='{{refund_information.status==2}}'>
+    <view>退款原因</view>
+    <view class='select_reason' bindtap='select_Season' >
+      <view class='select_name' wx:if="{{v_status==0}}">请选择</view>
+      <view class='select_name' wx:if="{{v_status==1}}">{{c_reason}}</view>
+      <view class='select_img'>
+        <image src='../../images/store/react3.png' />
+      </view>
+
+    </view>
+  </view>
+  <view class='refund_information' wx:for='{{commodity_infoList}}' wx:key>
+    <view class='refund_information_left'>
+      <image src='{{item.img_src}}'></image>
+    </view>
+    <view class='refund_information_right'>
+      <view>{{item.commodity_name}}</view>
+    </view>
+  </view>
+  <view class='refund_details' wx:if='{{refund_information.status>7}}'>
+    <view class="refund_details_reason details_all">
+      <view class='details_all_left'>
+        退款原因：
+      </view>
+      <view class='details_all_right'>
+        {{t_refund_apply.c_reason}}
+      </view>
+    </view>
+    <view class="refund_details_price details_all">
+      <view class='details_all_left'>
+        退款金额：
+      </view>
+      <view class='details_all_right'>
+        ￥{{refund_information.real_price}}
+      </view>
+    </view>
+    <view class="refund_details_num details_all">
+      <view class='details_all_left'>
+        申请件数：
+      </view>
+      <view class='details_all_right'>
+        1
+      </view>
+    </view>
+    <view class="refund_details_time details_all">
+      <view class='details_all_left'>
+        申请时间：
+      </view>
+      <view class='details_all_right'>
+        {{create_time}}
+      </view>
+    </view>
+    <view class="refund_details_bh details_all">
+      <view class='details_all_left'>
+        退款编号：
+      </view>
+      <view class='details_all_right'>
+        {{t_refund_apply.id}}
+      </view>
+    </view>
+  </view>
+  <view class='shop_reply' wx:if='{{refund_information.status==10}}'>
+  <view class="refund_details_reason details_all">
+      <view class='details_all_left'>
+        商家回复：
+      </view>
+      <view class='details_all_right'>
+        {{t_refund_apply.s_reason}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class='refund_all_bottom' bindtap='submit_reason' wx:if='{{refund_information.status==2}}'>
+提交
+</view>
+<!-- 退款原因弹出层 -->
+<!--  -->
+<view class='reason' catchtouchmove="preventTouchMove" catchtap='closereason' wx:if='{{selectSeason}}'></view>
+<view class='my_reason' wx:if='{{selectSeason}}'>
+  <view class='my_reason_title'>
+    退款原因
+  </view>
+<view > 
+<radio-group class="radio-group" bindchange="radioChange" >
+          <label class="radio"  wx:for='{{reason_list}}' wx:key  data-c_reason='{{item}}' bindtap='my_reason'>
+            {{item}}
+            <radio value="{{item}}" data-c_reason="{{item}}" bindtap='my_reason' />
+          </label>
+        </radio-group>
+        <view class='close_button' bindtap='my_close'>关闭</view>
+        <loading hidden="{{loadingHidden}}">...</loading>
+</view>
+</view>

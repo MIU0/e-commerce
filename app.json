@@ -1,0 +1,71 @@
+{
+  "pages": [
+   
+    "pages/home/home",
+    "pages/refund/refund",
+    "pages/create_order/create_order",
+    "pages/my_logs/my_logs",
+    "pages/pay_in_store/pay_in_store",
+    "pages/shop_details/shop_details",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/seller/seller",
+    "pages/person_center/person_center",
+    "pages/store_list/store_list",
+    "pages/settle_account/settle_account",
+    "pages/my_address/my_address",
+    "pages/edit_address/edit_address",
+    "pages/money/money",
+    "pages/add_address/add_address",
+    "pages/member/member",
+    "pages/empty/empty",
+    "pages/myremark/myremark",
+    "pages/red_packet/red_packet",
+    "pages/coupon/coupon",
+    "pages/vip_record/vip_record",
+    "pages/vip_information/vip_information",
+    "pages/get_coupon/get_coupon",
+    "pages/person_important/person_important",
+    "pages/all_order/all_order",
+    "pages/vip_details/vip_details"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fd5673",
+    "navigationBarTextStyle": "#fff",
+    "enablePullDownRefresh": false
+    
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#f88282",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "images/store/home_s.png",
+        "iconPath": "images/store/home.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/store/list_s.png",
+        "iconPath": "images/store/list.png",
+        "pagePath": "pages/store_list/store_list",
+        "text": "商品列表"
+      },
+      {
+        "selectedIconPath": "images/store/order_s.png",
+        "iconPath": "images/store/order.png",
+       "pagePath": "pages/all_order/all_order",
+        "text": "订单"
+      },
+      {
+        "selectedIconPath": "images/store/person_s.png",
+        "iconPath": "images/store/person.png",
+        "pagePath": "pages/person_center/person_center",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

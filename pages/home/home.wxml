@@ -1,0 +1,99 @@
+<!-- <image class='topp' src='/images/store/topp.png'></image> -->
+<!-- <view class='topp'></view> -->
+<!-- <view class='topp' style="background-image: url('https://www.vimi66.com/shop/upload/act_img//20180930094150546692.png')   "></view> -->
+<!-- 轮播 -->
+ <swiper class="swiper_view" autoplay="{{autoplay}}" indicator-dots="{{indicatorDots}}" indicator-color="rgba(200,200,200,0.5)" indicator-active-color='#ffffff' interval="{{interval}}" duration="{{duration}}"  circular="true" >
+      <block wx:for='{{imgsUrl}}' wx:key>
+        <swiper-item >
+          <image src="{{item.adver_img}}" mode="aspectFill" data-adver_url="{{item.adver_url}}" bindtap='transition'  class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 商品 -->
+    <view class='shops'  >
+      <view class='shops_left' wx:for="{{shops_infora}}" data-id='{{item.id}}' id='{{index}}'  >
+      <view bindtap="store_details" data-id='{{item.commodity_id}}' id='{{index}}'>
+      
+       <view class='shops_left_name' style='padding-left:40rpx;padding-right:40rpx;'>{{item.commodity_name}}
+       
+       </view>
+        <view class='shops_left_brief' style='padding-left:40rpx;padding-right:40rpx;'>{{item.commodity_introduction}}</view>
+        <view class='shops_left_img'>
+          <view class='shops_left_imgs'>
+             <image src='{{item.img_src}}' mode="aspectFill" />
+          </view>
+        </view>
+        <view class='shops_btn' >立即购买</view>
+      </view>
+       
+      </view>
+      <view class='shops_right' >
+         <view  wx:for="{{shops_inforb}}" data-id='{{item.id}}' id='{{index}}'>
+         <view class='shops_right_top' bindtap="store_details" data-id='{{item.commodity_id}}' id='{{index}}'>
+         <view class='shops_right_top_left'>
+             <view class='shops_right_top_left_img'>
+                <image src='{{item.img_src}}' mode="aspectFill"/>
+             </view>
+           </view>
+           <view class='shops_right_top_right'>
+             <view class='shops_right_top_right_top'>
+                <view class='shops_left_name text_left'>{{item.commodity_name}}</view>
+                <view class='shops_left_brief text_left'>{{item.commodity_introduction}}</view>
+             </view>
+              <view class='shops_right_btn' >立即购买</view>
+           </view>
+         </view>
+           
+    
+         </view>
+         <view  wx:for="{{shops_inforc}}" data-id='{{item.id}}' id='{{index}}'>
+         <view class='shops_right_bottom' bindtap="store_details" data-id='{{item.commodity_id}}' id='{{index}}'>
+           <view class='shops_right_bottom_left'>
+                  <view class='shops_right_bottom_left_img'>
+                <image src='{{item.img_src}}' mode="aspectFill"/>
+             </view>
+            </view>
+            <view class='shops_right_bottom_right'>
+               <view class='shops_right_bottom_right_top'>
+                  <view class='shops_left_name text_left'>{{item.commodity_name}}</view>
+                  <view class='shops_left_brief text_left'>{{item.commodity_introduction}}</view>
+               </view>
+               <view class='shops_right_btn' bindtap="store_details" data-id='{{item.commodity_id}}' id='{{index}}'>立即购买</view>
+            </view>
+         
+         
+         </view>
+          
+         
+         </view>
+      </view>
+    </view>
+    <!-- 猜你喜欢 -->
+    <view class='guess_you'>
+      <view class='guess_you_line'>
+         <image src='../../images/store/line.png'/>
+      </view>
+      <view class='guess_you_content'>热门商品</view>
+      <view class='guess_you_line'>
+         <image src='../../images/store/line.png'/>
+      </view>
+    </view>
+    <!-- 商品 -->
+     <scroll-view scroll-y="true" class="scroll_view" scroll-top="{{scrollTop}}" scroll-with-animation='true' bindscroll="toTop" bindscrolltolower="loadingMore" >
+    <view class='shops_list'>
+       <view class='shops_list_item' wx:for='{{shop_item}}' wx:key>
+          <view class='shops_list_item_img' data-id='{{item.commodity_id}}'  bindtap="store_details">
+             <image src='{{item.img_src}}' mode="aspectFill"/>
+          </view>
+          <view class='shops_list_item_name'>{{item.commodity_name}}</view>
+          <view class='shops_list_item_price_btn'>
+             <view class='shops_list_item_price'>
+              ￥{{item.price}}
+              </view>
+              <view class='shops_list_item_btn' data-id='{{item.commodity_id}}' bindtap="store_details">立即购买</view>
+          </view>
+       </view>
+
+    </view>
+    <view class="more_data" wx:if="{{inforHasMore== '0'}}">-- 没有更多 --</view>
+    </scroll-view>

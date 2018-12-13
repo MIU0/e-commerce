@@ -1,0 +1,14 @@
+<view class='mymember'>
+  <view class='member_title'>充值金额</view>
+
+    <block wx:for="{{pres}}" wx:key>
+      <view class='member_money_list' bindtap='click' data-id="{{index}}" data-recharge_id='{{item.id}}'>
+        <view class="member_money_list_left {{index == id? 'on' : ''}}" data-id="{{index}}">{{item.pay_price}}充值{{item.price}}</view>
+
+      </view>
+    </block>
+     <loading hidden="{{myloading}}">
+  加载中...
+ </loading>
+  <view class='money_now' bindtap='myPay'>立即充值</view>
+</view>

@@ -1,0 +1,135 @@
+<!-- <image class='topp' src='/images/store/topp.png'></image> -->
+<!-- <view class='topp' style="background-image: url('https://www.vimi66.com/shop/upload/act_img//20180930094150546692.png')   ">
+<view class='topall'>
+<view class='myreturn' bindtap='myreturn'> <image src='/images/fanhui.png'></image></view>
+<view class='topname'>商品详情</view>
+</view>
+</view> -->
+<view >
+  <scroll-view scroll-y class="scroll_view" scroll-top="{{scrollTop}}" scroll-with-animation='true' bindscrolltolower="loadingMore" bindscroll="toTop">
+    <swiper class="swiper_view" style="height:{{imgheights[current]}}px" indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}' circular="true">
+      <block style='height:100%;' wx:for='{{shop_details_img}}' wx:key>
+        <swiper-item style='height:100%;'>
+          <image src='{{item.img_url}}' class="slide-image"  mode="aspectFill"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='shop_item' wx:for='{{shop_details}}' wx:key data-id='{{item.commodity_id}}' id='{{index}}'>
+    <view class='shop_top'>
+     <view class='shop_item_left'>
+        <view class='shop_name'>{{item.commodity_name}}</view>
+        <view class='sales'>月售：{{item.mouth_num}}</view>
+        <view class='price'>￥{{item.price}}</view>
+      </view>
+      <view class='shop_item_right'>
+        <view class='shop_share'>
+          <view class='share_btn'>
+            <button class='shop_share_btn' open-type="share">
+              <image src='../../images/store/share.png' />
+            </button>
+          </view>
+          <text class='share_text'>分享</text>
+        </view>
+        <view class='shop_subtract_add'>
+          <view class="shop_subtract shop_common {{item.cart_num==0 ?'none':''}}" catchtap='reduce' data-commodity_id='{{item.commodity_id}}' data-index='{{index}}'  data-cart_num='{{item.cart_num}}' data-num='{{item.cart_num}}'>
+            <image src='../../images/store/subtract.png' />
+          </view>
+          <view class="shop_num {{item.cart_num==0 ?'none':''}}">{{item.cart_num}}</view>
+          <view class='shop_add shop_common' catchtap='add' data-commodity_id='{{item.commodity_id}}' data-cart_num='{{item.cart_num}}'  data-index='{{index}}' data-num='{{item.cart_num}}'>
+            <image src='../../images/store/add.png' />
+          </view>
+        </view>
+      </view>
+    </view>
+     
+    <view class='details_text'>
+    详情介绍：
+    {{item.commodity_introduction}}</view>
+    </view>
+    
+    <view class='guess_you'>
+      <view class='guess_you_line'>
+        <image src='../../images/store/line.png' />
+      </view>
+      <view class='guess_you_content'>商品详情</view>
+      <view class='guess_you_line'>
+        <image src='../../images/store/line.png' />
+      </view>
+    </view>
+    <!-- 商品内容 -->
+    <view class="shop_content">
+      <view class='shop_content_img' wx:for='{{shop_content_details}}' wx:key>
+        <image src='{{item.img_url}}' mode="aspectFill"/>
+      </view>
+      <!-- <view class="shop_content_text">
+        小李子是逗比小李子是逗比
+      </view> -->
+    </view>
+    <!-- 购物车(底部) -->
+    <view class='shopping_cart' >
+      <view class='shopping_cart_left'>
+        <view class='shopping_cart_left_img' bindtap='popup' >
+          <image src='../../images/store/cart1.png' />
+        </view>
+        <view class='shopping_cart_circle'>
+         
+        </view>
+        <view class='shopping_cart_circle_num'>{{sum.c_shop_sum}}</view>
+        <view class='shopping_cart_left_price'>￥{{sum.c_price_sum}}</view>
+
+      </view>
+      <button  class="shopping_cart_right1 " wx:if='{{sum.c_shop_sum<1}}' disabled  bindtap='create_order' >未选购</button>
+      <button  class="shopping_cart_right " wx:if='{{sum.c_shop_sum>0}}'  bindtap='create_order' >去买单</button>
+    </view>
+
+    <!-- 弹出层 -->
+    <view class='mask' catchtouchmove="preventTouchMove" catchtap='closemask' wx:if='{{windows_out}}'></view>
+    <view class='tips_window' wx:if='{{windows_out}}'>
+      <view class='tips_window_top'>
+        <view class='tips_window_top_left'>已选择商品</view>
+        <view class='tips_window_top_right' bindtap='clear_shop'>
+          <view class='tips_window_top_img'>
+            <image src='../../images/store/empty.png' />
+          </view>
+          <view class='tips_window_top_text'>清空</view>
+        </view>
+      </view>
+      <view class='tips_window_list' wx:for='{{buy}}' wx:key  data-id='{{item.commodity_id}}' id='{{index}}'>
+        <view class='tips_window_list_item'>
+          <view class='tips_window_list_item_name'>{{item.commodity_name}}</view>
+          <view class='tips_window_list_item_right'>
+            <view class='shop_price_add'>
+              <view class='shop_price'>
+                <view class='shop_price_icon'>￥</view>
+                <view class='shop_price_num'>{{item.commodity_price}}</view>
+              </view>
+              <view class='tips_shop_subtract_add'>
+                <view class="tips_shop_subtract tips_shop_common" catchtap='sub_shop' data-commodity_id='{{item.commodity_id}}' data-index='{{index}}'  data-comm_num='{{item.comm_num}}' data-num='{{item.comm_num}}'>
+                  <image src='../../images/store/subtract.png' />
+                </view>
+                <view class='tips_shop_num'>{{item.comm_num}}</view>
+                <view class="tips_shop_add tips_shop_common " catchtap='add_shop' data-commodity_id='{{item.commodity_id}}' data-comm_num='{{item.comm_num}}'  data-index='{{index}}' data-num='{{item.comm_num}}'>
+                  <image src='../../images/store/add.png' />
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+       
+      </view>
+      <!-- 包装盒 -->
+      <!-- <view class="tips_box_content {{sum==null?'remove' : ''}}">
+         <view class='tips_box'>
+          <view class='tips_box_left'>包装盒</view>
+          <view class='tips_box_right'>
+              <view class='shop_price'>
+                <view class='shop_price_icon'>￥</view>
+                <view class='shop_price_num'>{{packing_price}}</view>
+              </view>
+          </view>
+         </view>
+        </view> -->
+    </view>
+  </scroll-view>
+</view>

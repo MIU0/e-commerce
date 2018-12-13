@@ -1,0 +1,8 @@
+<view class="my_logs">
+<view class='logs_company'>物流公司：</view>
+<view class='company_name'>{{my_logs.name}}</view>
+</view>
+<view class="my_logs" style='border:none;'>
+<view class='logs_company'>快递单号：</view>
+<view class='company_name'>{{my_logs.express_num}}</view>
+</view>

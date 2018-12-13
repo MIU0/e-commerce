@@ -1,0 +1,67 @@
+<view>
+  <view class='add_address'>
+    <view class='add_address_list'>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          联系人:
+        </view>
+        <view class='add_address_list_item_right'>
+          <input class='add_address_list_item_right_input' placeholder='请输入您的姓名' placeholder-class='add_address_list_item_input' />
+          <view class='del'>
+            <image src='../../images/store/del.png'/>
+          </view>
+        </view>
+
+      </view>
+      <view class='add_address_top'>
+        <button class='add_address_top_common'>
+          先生
+        </button>
+        <button class='add_address_top_common address_woman'>
+          女士
+        </button>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          电话:
+        </view>
+        <view class='add_address_list_item_right add_margin_left'>
+          <input class='add_address_list_item_right_input' type='number' placeholder='请输入您的电话号码' maxlength='11' placeholder-class='add_address_list_item_input' />
+          <view class='del'>
+            <image src='../../images/store/del.png' />
+          </view>
+        </view>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          地址:
+        </view>
+        <view class='add_address_list_item_right add_margin_left'>
+          <input class='add_address_list_item_right_input' placeholder='您的具体地址门牌号' placeholder-class='add_address_list_item_input' />
+          <view class='del'>
+            <image src='../../images/store/del.png' />
+          </view>
+        </view>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          标签
+        </view>
+        <view class='add_address_list_right'>
+          <view class='add_address_top_common'>
+            家
+          </view>
+          <view class='add_address_top_common address_woman'>
+            公司
+          </view>
+          <view class='add_address_top_common address_woman'>
+            学校
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 保存 -->
+    <view class='submit_btn'>保存</view>
+  </view>
+</view>

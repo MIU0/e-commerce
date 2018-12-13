@@ -1,0 +1,331 @@
+page{
+  background: #f8f8f8;
+  padding-bottom:100rpx;
+}
+.accounts{
+  /* padding: 34rpx 30rpx; */
+}
+
+.remove{
+  display:none;
+}
+.accounts_status{
+  display: flex;
+  border-radius: 10rpx;
+  height: 220rpx;
+  width: 93%;
+  margin: 34rpx 30rpx;
+}
+.accounts_status_top{
+  padding-top: 50rpx;
+  padding-bottom: 8rpx;
+} 
+
+.accounts_status_text{
+  padding-top: 16rpx;
+  color: #3f3f3f;
+  font-size: 34rpx;
+  text-align: center;
+}
+.accounts_status_tips{
+  padding-top: 14rpx;
+  color: #c1c1c1;
+  font-size: 26rpx;
+  text-align: center;
+}
+.accounts_status_bottom{
+  width: 100%;
+  padding: 24rpx 0;
+  display: flex;
+  padding-left: 0;
+  border-top: 1px solid #c0c0c0;
+  position:fixed ;
+  bottom: 0;
+  background-color: white;
+
+
+}
+
+.accounts_common{
+  width: 184rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.acounts_cancel{
+  border-radius: 16rpx;
+  border: 1rpx solid #cccccc;
+  background: #fff;
+  color: #747474;
+  margin-left: 269rpx;
+  margin-right: 49rpx;
+}
+.account_pay{
+  border: 1rpx solid #fe5275;
+  border-radius: 16rpx;
+  background: #fe5176;
+  color: #ffe3e8;
+  
+  
+}
+
+/* 订单商品 */
+.accounts_shops{
+  background: #fff;
+  margin-top: 24rpx;
+  border-radius: 10rpx;
+   width: 93%;
+  margin: 34rpx 30rpx;
+}
+.accounts_shops_list{
+   border-radius: 16rpx;
+   background: #fff;
+   
+}
+.accounts_shops_list_item{
+   width: 93%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 16rpx 20rpx 16rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+.accounts_shops_list_item_name{
+  font-size: 28rpx;
+  color: #464646;
+}
+.accounts_shops_list_item_right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.accounts_shops_list_item_sign_num{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.accounts_shops_list_item_sign_img{
+  width: 24rpx;
+  height: 24rpx;
+  font-size: 22rpx;
+}
+.accounts_shops_list_item_sign_img image{
+  width: 100%;
+  height: 100%;
+}
+.accounts_shops_list_item_num{
+  font-size: 28rpx;
+  padding-left: 6rpx;
+}
+
+.accounts_shops_list_item_icon_price{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 30rpx;
+}
+.accounts_shops_list_item_icon{
+  font-size: 22rpx;
+}
+.accounts_shops_list_item_price{
+  font-size: 28rpx;
+  padding-left: 6rpx;
+}
+.accounts_total{
+  padding: 70rpx 16rpx 30rpx 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accounts_total_left{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.accounts_total_left_icon{
+  width: 46rpx;
+  height: 46rpx;
+}
+.accounts_total_left_icon image{
+  width: 100%;
+  height: 100%;
+}
+.accounts_total_left_text{
+  font-size: 28rpx;
+  color: #fe93aa;
+  padding-left: 12rpx;
+}
+.accounts_total_right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.accounts_total_right_add{
+  font-size: 20rpx;
+
+}
+.accounts_total_right_icon_price{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10rpx;
+}
+.accounts_total_right_icon{
+  font-size: 22rpx;
+}
+
+.accounts_total_right_price{
+  font-size: 30rpx;
+  color: #464646;
+}
+
+/* 配送地址 */
+.accounts_address{
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 10rpx;
+   width: 93%;
+  margin: 34rpx 30rpx;
+}
+.accounts_address_item{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32rpx 16rpx 20rpx 16rpx;
+  border-bottom: 1px solid #ccc;
+}
+.accounts_address_title{
+font-size: 34rpx;
+}
+.accounts_address_title{
+font-size: 34rpx;
+}
+.accounts_address_item_left{
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.accounts_address_item_right{
+  font-size: 28rpx;
+}
+.accounts_address_item_right_info{
+  width: 400rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 28rpx;
+  /* border: 1px solid red; */
+}
+.accounts_address_items{
+  display: flex;
+  justify-content: flex-start;
+  padding: 34rpx 16rpx 50rpx 16rpx;
+}
+.accounts_address_common{
+  padding-bottom: 16rpx;
+  text-align: left;
+  width: 100%;
+}
+.accounts_address_item_right_address{
+  width: 100%;
+   /* border: 1px solid red; */
+}
+.accounts_right{
+}
+ .a3_bottom1{
+     /* margin-top: 18rpx;
+  margin-bottom: 18rpx; */
+  text-align: center;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #c4c4c4;
+  border: 2rpx solid #c4c4c4;
+  border-radius: 16rpx;
+  margin-left: 350rpx;
+   
+  }
+  .a3_bottom2{
+     /* margin-top: 18rpx;
+  margin-bottom: 18rpx; */
+  text-align: center;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #f88282;
+  border: 2rpx solid #f88282;
+  border-radius: 16rpx;
+  margin-left: 50rpx;
+   
+  }
+
+  .a3_bottom3{
+     /* margin-top: 18rpx;
+  margin-bottom: 18rpx; */
+  text-align: center;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #f88282;
+  border: 2rpx solid #f88282;
+  border-radius: 16rpx;
+  margin-left: 50rpx;
+   
+  }
+  .a3_bottom4{
+     /* margin-top: 18rpx;
+  margin-bottom: 18rpx; */
+  text-align: center;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #f88282;
+  border: 2rpx solid #f88282;
+  border-radius: 16rpx;
+  margin-left: 50rpx;
+   
+  }
+   .a3_bottom5{
+     /* margin-top: 18rpx;
+  margin-bottom: 18rpx; */
+  text-align: center;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #c4c4c4;
+  border: 2rpx solid #c4c4c4;
+  border-radius: 16rpx;
+  margin-left: 350rpx;
+   
+  }
+   .a3_bottom6{
+     /* margin-top: 18rpx;
+  margin-bottom: 18rpx; */
+  text-align: center;
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #f88282;
+  border: 2rpx solid #f88282;
+  border-radius: 16rpx;
+  margin-left: 559rpx;
+   
+  }
+
+
+
+
+
+
+
+
+
+

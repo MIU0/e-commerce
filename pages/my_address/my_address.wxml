@@ -1,0 +1,66 @@
+<view>
+  <view class='my_address'>
+     <view class='my_address_list'>
+     <radio-group bindchange="setDefault" class="Allselect ">    
+     <block wx:for='{{address_left}}' wx:key>
+        <view class='my_address_list_item' >
+        <!-- 选择框 -->
+         
+        <radio value='{{item.address_id}}' wx:if='{{item.status==1}}' checked />
+
+          <radio value='{{item.address_id}}' wx:if='{{item.status==0}}' />
+       
+           <!-- 左 -->
+           <view class='my_address_list_item_left'  >
+               <view class='my_address_list_item_left_top'>
+                  <view class='my_address_list_item_left_top_name'>{{item.name}}</view>
+                  <view class='my_address_list_item_left_top_identity my_address_common' wx:if="{{item.sex=='F'}}">(先生)</view>
+                  <view class='my_address_list_item_left_top_identity my_address_common' wx:if="{{item.sex=='M'}}">(女士)</view>
+                  <view class='my_address_list_item_left_top_phone my_address_common'>{{item.phone}}</view>
+               </view>
+               <view class='my_address_list_item_left_bottom'>
+                   <view class='my_address_list_item_left_bottom_left'  wx:if="{{item.label=='0'}}">
+                       家
+                   </view>
+                   <view class='my_address_list_item_left_bottom_left'  wx:if="{{item.label=='1'}}">
+                       公司
+                   </view>
+                   <view class='my_address_list_item_left_bottom_left'  wx:if="{{item.label=='2'}}">
+                       学校
+                   </view>
+                   <view class='my_address_list_item_left_bottom_address'>{{item.province}}{{item.city}}{{item.county}}{{item.details_addr}}</view>
+               </view>
+              
+           </view>
+            
+           <!-- 右 -->
+           <view class='my_address_list_item_right'>
+              <view class='my_address_list_item_right_modify' data-address_id="{{item.address_id}}" bindtap='editAddress'>
+                 <image src='../../images/store/modify.png'/>
+              </view>
+              <view class='my_address_list_item_right_del' bindtap='delAddress' data-address_id='{{item.address_id}}' data-id='{{address_id}}'data-index='{{index}}' data-status="{{item.status}}">
+                 <image src='../../images/store/del.png'/>
+              </view>
+           </view>
+        </view>
+         </block>
+         </radio-group>
+     </view>
+    
+     
+  </view>
+</view>
+<view class='my_address_increase' bindtap='addAddress'>
+
+        <view class='my_address_increase_img'>
+          <image src='../../images/store/adds.png'/>
+        </view>
+        <view class='my_address_increase_text'>
+       新增收货地址
+        </view>
+   
+     </view>
+     <!-- 地址弹出层 -->
+     <!-- <view class='addressmask' catchtouchmove="preventTouchMove" catchtap='closemask' wx:if='{{windows_out}}'>
+     <view></view>
+     </view> -->

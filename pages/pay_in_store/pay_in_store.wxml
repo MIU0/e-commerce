@@ -1,0 +1,164 @@
+<view>
+  <form>
+    <view class='create_order'>
+      <view class='order_address_time'>
+        <view class='order_address_top'>
+          <view class='order_address_top_name'></view>
+        </view>
+        <view class='order_address_bottom' bindtap='openMap'>
+          <view class='order_address_bottom_left1'>{{t_store_info.province}}{{t_store_info.city}}{{t_store_info.county}}{{t_store_info.address}}</view>
+          <view class='order_address_bottom_right' >
+            <view class='order_address_bottom_right_input'></view>
+            <view class='order_address_bottom_right_shape_icon'>
+              <image src='../../images/store/shape.png' />
+            </view>
+          </view>
+        </view>
+        <!-- 送达时间 -->
+        <view class='order_address_bottom'>
+          <view class='order_address_bottom_left'>送达时间</view>
+          <view class='order_address_bottom_right' bindtap='selectTime'>
+            <view class='order_address_bottom_right_input' wx:if="{{date1==0}}">今天</view>
+            <view class='order_address_bottom_right_input' wx:if="{{date1==1}}">明天</view>
+            <view class='order_address_bottom_right_input' wx:if="{{date1==2}}">后天</view>
+            <view class='order_address_bottom_right_input' >({{time}}送达)</view>
+            <view class='order_address_bottom_right_icon'>
+              <image src='../../images/store/react6.png' />
+            </view>
+          </view>
+        </view>
+        <!-- 就餐人数 -->
+        <!-- <view class='order_address_bottom'>
+        <view class='order_address_bottom_left'>就餐人数</view>
+        <view class='order_address_bottom_right'>
+          <view class='order_address_bottom_right_input'>2人</view>
+          <view class='order_address_bottom_right_icon' bindtap='selectNum'>
+            <image src='../../images/store/react4.png' />
+          </view>
+        </view>
+      </view> -->
+
+      </view>
+      <!-- 选择就餐方式 -->
+      <radio-group bindchange="radioChange" class="Allselect ">
+    <view class='select_order'>
+    <view class='select_order_left'>
+    <view class='select_a'>外卖配送</view>
+    <label  class="{{radioCheckVal==0?'active':''}}">
+      <radio class='select_eat' value="0"  bindtap='payOutStore'></radio>
+      </label  >
+    </view>
+      <view class='select_order_right'>
+    <view class='select_a' >到店自取</view>
+     <label  class="{{radioCheckVal==1?'active':''}}">
+      <radio class='select_eat' value="1" checked bindtap='payInStore'></radio>
+       </label  >
+    </view>
+    </view>
+    </radio-group>
+      <!-- 各类订单 -->
+      <view class='order_kinds'>
+        <view class='order_kinds_list'>
+          <view class='order_kinds_list_item' wx:for='{{cartList}}' wx:key>
+            <view class='order_kinds_list_item_img'>
+              <image src='{{item.img_src}}'></image>
+            </view>
+            <view class='order_kinds_list_item_nanu'>
+              <view class='order_kinds_list_item_name'>{{item.commodity_name}}</view>
+              <!-- <view class='order_kinds_list_item_right'> -->
+              <view class='order_kinds_list_item_right_num'>
+                <view class='order_kinds_list_item_right_nums'>×{{item.comm_num}}</view>
+              </view>
+            </view>
+            <view class='order_kinds_list_item_right_icon_price'>
+              <view class='order_kinds_list_item_right_icon_price_icon'>￥</view>
+              <view class='order_kinds_list_item_right_price'>{{item.commodity_price}}</view>
+            </view>
+
+          </view>
+
+          <!-- 小计 -->
+          <view class='order_subtotal'>
+            <view class='order_subtotal_name'>小计</view>
+            <view class='order_subtotal_right'>
+              <view class='order_subtotal_right_icon'>￥</view>
+              <view class='order_subtotal_right_num'>{{sum_price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 备注 -->
+      <view class='order_remark'>
+        <view class='remark_left_phone'>电话</view>
+        <input type='text' class='order_remark_input' name="phone" bindtap='order_remark_tap' placeholder='取餐手机号（必填）' placeholder-class='order_input' bindblur="phone"></input>
+      </view>
+      <view class='order_remark'>
+        <view class='remark_left'>备注</view>
+        <input type='text' class='order_remark_input' name="remark" bindtap='order_remark_tap' placeholder='口味偏好等要求' placeholder-class='order_input' bindblur="remarks"></input>
+      </view>
+
+
+
+    </view>
+
+    <!-- 总额/去支付 -->
+    <view class='rental_pay'>
+      <view class='rental_pay_left'>
+        ￥{{sum_price}}
+      </view>
+      <view class='rental_pay_right' bindtap='toPay'>
+        确定支付
+      </view>
+    </view>
+  </form>
+  <!-- 选择时间 -->
+  <view class='mask' catchtouchmove="preventTouchMove" catchtap='closemask' wx:if='{{selectTime}}'></view>
+  <view class='select_time' wx:if='{{selectTime}}'>
+    <view class='select_time_top'>
+      <view class='top_expain'>选择到店时间</view>
+      <view class='top_sure' hover-class='top_sure_hover' bindtap='top_sure'>确认</view>
+    </view>
+    <view class='select_time_content' value="{{value}}">
+      <view class='select_time_content_left'>
+        <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" wx:for='{{time_order}}' data-current="{{index}}" bindtap="selectWeek">{{item}}</view>
+      </view>
+
+      <scroll-view scroll-y="true" class='select_time_content_right' wx:if='{{current == 0}}'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label  wx:for="{{time_items}}" wx:key>
+          <view class="radio" bindtap='check_sure' data-time="{{item}}">
+           {{item}}
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time!=item}}" bindtap='check_sure' />
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time==item}}" checked="true" bindtap='check_sure' />
+          </view>
+           
+          </label>
+        </radio-group>
+      </scroll-view>
+      <scroll-view scroll-y="true" class='select_time_content_right' wx:if='{{current == 1}}'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label  wx:for="{{time_items}}" wx:key>
+            <view class="radio" bindtap='check_sure' data-time="{{item}}">
+           {{item}}
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time!=item}}" bindtap='check_sure' />
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time==item}}" checked="true" bindtap='check_sure' />
+          </view>
+          </label>
+        </radio-group>
+      </scroll-view>
+      <scroll-view scroll-y="true" class='select_time_content_right' wx:if='{{current == 2}}'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label  wx:for="{{time_items}}" wx:key>
+            <view class="radio" bindtap='check_sure' data-time="{{item}}">
+           {{item}}
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time!=item}}" bindtap='check_sure' />
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time==item}}" checked="true" bindtap='check_sure' />
+          </view>
+          </label>
+        </radio-group>
+      </scroll-view>
+
+    </view>
+  </view>
+</view>

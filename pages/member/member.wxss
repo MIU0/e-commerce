@@ -1,0 +1,58 @@
+/* pages/member/member.wxss */
+
+.mymember {
+  width: 674rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+}
+
+.member_title {
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #454545;
+  font-size: 34rpx;
+}
+
+/* .member_money {
+  width: 100%;
+  height: 20rpx;
+  border: 1px solid red;
+} */
+
+.member_money_list {
+  display: inline;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+.member_money_list_left {
+  width: 45%;
+  height: 160rpx;
+  line-height: 160rpx;
+  border: 1px solid #f8809a;
+  text-align: center;
+  display: inline-block;
+  border-radius: 20rpx;
+  color: #454545;
+  margin-right: 15rpx;
+  margin-left: 15rpx;
+  margin-bottom: 29rpx;
+}
+
+
+
+.money_now {
+  width: 100%;
+  height: 72rpx;
+  background-color: #f8809a;
+  text-align: center;
+  line-height: 72rpx;
+  color: #fff;
+  border-radius: 26rpx;
+  margin-top:40rpx;
+  font-size: 36rpx;
+}
+.on{
+  background-color: #f8809a;
+  color: #fff;
+}

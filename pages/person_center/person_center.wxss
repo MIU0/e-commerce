@@ -1,0 +1,152 @@
+page{
+  background: #f8f8f8;
+}
+.person_center{
+  height: 30vh;
+  width: 100%;
+  margin-top: -20rpx;
+}
+.person_center_img{
+  height: 100%;
+  width: 100%;
+}
+.person_center_top{
+  position: relative;
+  width: 686rpx;
+  height: 370rpx;
+  margin-left: 32rpx;
+  margin-top: -32rpx;
+  /* border: 1px solid red;   */
+  text-align: center;
+}
+.person_center_top image{
+  width: 686rpx;
+  border-radius: 16rpx;
+  height: 100%;
+  margin-top: -20rpx;
+
+}
+.person_center_top_logo{
+  position: absolute;
+  top: -60rpx;
+  left: 0;
+  /* padding: 0 300rpx; */
+  /* width: 150rpx; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+}
+.person_center_top_logo button{
+border: none;
+background: none;
+}
+button::after{
+border: none;
+}
+.user-avatar-kuang{
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  text-align: center;
+   margin: 0 auto;
+}
+.user-avatar-kuang image{
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  text-align: center;
+}
+
+/* 姓名 */
+.mine_logo_name {
+  font-size: 32rpx;
+  color: #535353;
+  text-align: center;
+}
+/* 优惠券/红包/余额 */
+.coupon_red_balance{
+  position: absolute;
+  top: 177rpx;
+  width: 610rpx;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 44rpx 0 42rpx;
+}
+.coupon_common{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.coupon_num{
+ color: #f6829a; 
+ display: flex;
+ justify-content: flex-start;
+
+}
+.coupon_num_text{
+  font-size: 50rpx;
+}
+.coupon_num_unit{
+  font-size: 24rpx;
+  /* padding-left: 4rpx;
+  padding-top: 22rpx; */
+  margin-top: 27rpx; 
+  }
+  .coupon_name{
+    text-align: center;
+    font-size: 30rpx;
+    color: #525252;
+    padding-top: 16rpx;
+  }
+
+  .person_center_bottom{
+    position: relative;
+    width: 686rpx;
+    height: 350rpx;
+    margin-top: 26rpx;
+    margin-left: 32rpx;
+  }
+  .person_center_bottom image{
+    width: 686rpx;
+    border-radius: 16rpx;
+    height: 100%;
+
+  }
+  .person_center_bottom_list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 686rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .person_center_bottom_list_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30rpx 16rpx 10rpx 16rpx;
+    margin: 0 26rpx;
+    border-bottom: 2rpx solid #eee;
+  }
+
+  .person_center_bottom_list_item_name{
+    font-size: 34rpx;
+    color: #808080
+  }
+.person_center_bottom_list_item_right{
+  width: 20rpx;
+  height: 30rpx;
+  padding-bottom: 10rpx;
+}
+.person_center_bottom_list_item_right image{
+  width: 100%;
+  height: 100%;
+}
+
+

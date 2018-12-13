@@ -1,0 +1,24 @@
+<view class='get_coupon_all' style="background-image:url('https://www.vimi66.com/fruit/upload/act_img//20181024153258749158.jpg') ">
+  <scroll-view class='coupon_list' scroll-y >
+    <view class='coupon_list_body' style="background-image:url('https://www.vimi66.com/fruit/upload/act_img//20181024154230730821.png') " wx:for="{{coupon_list}}" wx:key  >
+
+      <view class='coupon_details' >
+        <view class='coupon_detail_left'>
+          <view class='right_fh'>￥</view>
+          <view class='right_price'>{{item.coupons_price}}</view>
+        </view>
+        <view class='coupon_detail_right'>
+          <view class='left_top'>新用户满{{item.qs_je}}可用</view>
+          <view class='left_phone'>限手机号12345678912</view>
+          <view class='left_bottom'>30天内有效</view>
+        </view>
+
+      </view>
+      <view class='coupon_list_body_click' wx:if="{{item.lq_status==0}}" data-index='{{index}}' data-lq_status="1" bindtap='coupon_click' data-id='{{item.coupons_id}}'>
+    领取</view>
+    <view class='coupon_list_body_finish' wx:if="{{item.lq_status==1}}" data-lq_status="0">
+    已领取</view>
+    </view>
+
+  </scroll-view>
+</view>

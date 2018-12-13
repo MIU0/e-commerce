@@ -1,0 +1,259 @@
+page {
+  background: #f8f8f8;
+}
+
+.accounts_status {
+  display: flex;
+  border-radius: 10rpx;
+  height: 220rpx;
+  width: 93%;
+  margin: 34rpx 30rpx 20rpx 30rpx;
+}
+
+.accounts_status_top {
+  padding-top: 50rpx;
+  padding-bottom: 8rpx;
+  /* border: 1px solid red; */
+  margin-left: 22px;
+}
+
+.accounts_status_text {
+  padding-top: 16rpx;
+  color: #3f3f3f;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+.accounts_status_tips {
+  padding-top: 14rpx;
+  color: #c1c1c1;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.refund_price {
+  width: 93%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-bottom: 15rpx;
+}
+
+.refund_reason {
+  width: 93%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-bottom: 15rpx;
+}
+
+.select_reason {
+  color: rgb(117, 115, 115);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.select_name {
+  margin-right: 7rpx;
+}
+
+.select_img {
+  width: 20rpx;
+  height: 30rpx;
+  margin-top: 7rpx;
+  margin-left: 10rpx;
+}
+
+.select_img image {
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.refund_information {
+  width: 93%;
+  height: 200rpx;
+  margin: 0 auto;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-bottom: 15rpx;
+}
+
+.refund_information_left {
+  width: 30%;
+  height: 200rpx;
+   border-radius: 10rpx;
+    /* border: 1px solid red; */
+}
+.refund_information_left image{
+  width: 80%;
+  height: 80%;
+  margin-top: 10px;
+   border-radius: 10rpx;
+  
+}
+.refund_information_right {
+  width: 68%;
+  /* height: 200rpx; */
+  font-size: 28rpx;
+  color: #464646;
+  /* border: 1px solid red; */
+  padding-top: 29rpx;
+}
+.refund_details{
+  width: 93%;
+  background: #fff;
+   border-radius: 10rpx;
+    margin: 0 auto;
+    margin-bottom: 15rpx;
+}
+.details_all{
+  width: 100%;
+  height: 61rpx;
+  line-height: 61rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  font-size: 28rpx;
+  color:#777777;
+
+}
+.details_all_left{
+  width: 30%;
+  height: 100%;
+}
+.details_all_right{
+  width: 70%;
+  height: 100%;
+}
+/* 弹出层 */
+.reason{
+   width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 990;
+  opacity: 0.7;
+}
+.my_reason{
+   position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 63vh;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  /* border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx; */
+}
+.my_reason_title{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.radio-group {
+  margin: 0 auto;
+  width: 94%;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.radio {
+  padding: 18rpx 18rpx 16rpx 16rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #eeeeee;
+ color: #5e5e5e;
+ font-size: 34rpx;
+ 
+}
+.radio radio{
+  /* border: 1px solid black; */
+  width:54rpx;
+  height:54rpx;
+  padding-left: 10rpx;
+   padding-bottom: 5rpx;
+   transform: scale(0.9);
+   text-align: center
+}
+radio .wx-radio-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;
+   height: 40rpx;
+  
+   border: 1px solid #fc5872;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked{
+   /* border: none; */
+    background: #fc5872;
+    border: 1px solid #fc5872;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 45rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 45rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 45rpx;
+   text-align: center;
+   font-size:32rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+   border: 1px solid #fc5872;
+   background: #fc5872;
+}
+.close_button{
+  width: 100%;
+  height: 81rpx;
+  line-height: 81rpx;
+  color: #fff;
+  background: #fc5872;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+.shop_reply{
+   width: 93%;
+  background: #fff;
+   border-radius: 10rpx;
+    margin: 0 auto;
+}
+.refund_all_bottom{
+   width: 100%;
+height: 100rpx;
+line-height: 100rpx;
+  position:fixed ;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  background-color: #fc5872;
+}

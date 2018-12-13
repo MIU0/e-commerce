@@ -1,0 +1,20 @@
+<view class='packet'>
+  <view class='packet_all' style='background-image: url(../../images/red_packet.png);background-size:100% 100%;'>
+    <view class='packet_content'>
+      <view class='content_one'>
+        <view class='cont_one'>￥</view>
+        <view class='cont_price'>9.9</view>
+      </view>
+      <view class='content_two'>
+        <view class='cont_name'>新品蛋糕体验红包</view>
+        <view class='cont_phone'>限手机号13207268964</view>
+      </view>
+      <view class='content_three'>
+        <view class='cont_click'>去使用</view>
+      </view>
+    </view>
+    <view class='content_label'>
+    <view class='label'>限鲜花类目使用，满100可用</view>
+    </view>
+  </view>
+</view>

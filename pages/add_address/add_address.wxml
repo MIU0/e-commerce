@@ -1,0 +1,89 @@
+<view>
+  <form class='add_address' bindsubmit="formSubmit" >
+    <view class='add_address_list'>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          用户名:
+        </view>
+        <input class='add_address_list_item_input' name='name' placeholder='请输入您的姓名' value='{{info.name}}' placeholder-class='add_address_list_item_right' />
+      </view>
+      <view class='add_address_top'  >
+        <view class="add_address_top_common {{currentSelect == 'F'?'is_checked':''}}" bindtap="sexman" data-id='F' name='sex' value='F'>
+          先生
+        </view>
+        <view class="add_address_top_common address_woman {{currentSelect == 'M'?'is_checked':''}}" bindtap='sexwoman' data-id='M' name='sex' value='M'>
+          女士
+        </view>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          电话:
+        </view>
+        <input class='add_address_list_item_input add_margin_left' name='phone' placeholder='请输入您的电话号码' placeholder-class='add_address_list_item_right' maxlength='11' value='{{info.phone}}'/>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          地区:
+        </view>
+        <input class='add_address_list_item_input add_margin_left' placeholder='省、市、区' placeholder-class='add_address_list_item_right' bindtap='pup' value='{{areaInfo}}'  name='province' disabled='false'/>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          地址:
+        </view>
+        <input class='add_address_list_item_input add_margin_left' placeholder='您的具体地址门牌号' placeholder-class='add_address_list_item_right'  name='details_addr' value='{{info.details_addr}}'/>
+      </view>
+      <view class='add_address_list_item'>
+        <view class='add_address_list_item_left'>
+          标签
+        </view>
+        <view class='add_address_list_right'>
+          <view class="add_address_top_common {{mySelect == '0'?'is_checked':''}}" bindtap="home" data-id='0' name='label' value='0'>
+            家
+          </view>
+          <view class="add_address_top_common address_woman {{mySelect == '1'?'is_checked':''}}" bindtap="company" data-id='1' name='label' value='1'>
+            公司
+          </view>
+          <view class="add_address_top_common address_woman {{mySelect == '2'?'is_checked':''}}" bindtap="school" data-id='2' name='label' value='2'>
+            学校
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+    <button class='submit_btn' form-type='submit'>保存</button>
+  </form>
+
+
+</view>
+<!-- 地址弹出层 -->
+<view class='mask' catchtouchmove="preventTouchMove" catchtap='closemask' wx:if='{{windows_out}}'></view>
+<view class='tips_window' wx:if='{{windows_out}}' animation="{{animationAddressMenu}}">
+  <view class='tips_window_top'>
+    <view class='tips_window_top_left' catchtap="cityCancel">
+      取消
+    </view>
+    <view class='tips_window_top_right' catchtap="citySure">
+      确定
+    </view>
+  </view>
+
+  <picker-view class='select' bindchange="cityChange" value="{{value}}">
+  <picker-view-column >
+  <view wx:for="{{provinces}}" wx:key>
+  <view class='.picker-item'>{{item.name}}</view>
+  </view>
+  </picker-view-column>
+  <picker-view-column>
+  <view wx:for="{{citys}}" wx:key>
+  <view class='.picker-item'>{{item.name}}</view>
+  </view>
+  </picker-view-column>
+  <picker-view-column>
+  <view wx:for="{{areas}}" wx:key>
+  <view class='.picker-item'>{{item.name}}</view>
+  </view>
+  </picker-view-column>
+  </picker-view>
+</view>

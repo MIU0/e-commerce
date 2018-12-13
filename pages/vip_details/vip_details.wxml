@@ -1,0 +1,33 @@
+<view class='vip_card'>
+<view class='person_important_top' style="background-image:url('https://www.vimi66.com/fruit/upload/act_img//20181025114026473024.png') " bindtap='my_vip'>
+<view class='card_name_big'>薇明商城会员卡</view>
+<view class='card_name_small'>WeiMing shopping small store</view>
+</view>
+</view>
+<view class='vip_details'>
+  <view class='vip_card_name my_vip'>
+    <view>会员卡名称：</view>
+    <view>超级会员卡</view>
+  </view>
+  <view class='vip_card_money my_vip'>
+    <view>会员卡余额：</view>
+    <view>{{vip_information.balance}}元</view>
+  </view>
+  <!-- <view class='vip_card_discount my_vip'>
+    <view>折扣优惠：</view>
+    <view>{{vip_information.discount}}</view>
+  </view> -->
+  <view class='vip_card_person my_vip'>
+    <view>持卡人：</view>
+    <view >{{vip_information.name}}</view>
+  </view>
+  <view class='vip_card_totle my_vip'>
+    <view>会员卡明细：</view>
+    <view style='color:red;' bindtap='record'>查看记录</view>
+  </view>
+    <view class='vip_card_phone my_vip'>
+    <view>手机：</view>
+    <view>{{vip_information.phone}}</view>
+  </view>
+  <view class='deposit' bindtap='deposit'>前往充值</view>
+</view>

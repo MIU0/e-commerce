@@ -1,0 +1,22 @@
+
+<view class='record_all' >
+<view class='my_record' style='margin-top:10px;' wx:for="{{my_record}}" wx:key>
+  <view class='my_record_left'>
+    <view class='my_record_left_top' wx:if="{{item.type==1}}">
+      会员充值
+    </view>
+    <view class='my_record_left_top' wx:if="{{item.type==0}}">
+      会员消费
+    </view>
+    <view class='my_record_left_bottom'>
+      {{item.create_time}}
+    </view>
+  </view>
+  <view class='my_record_right'>
+    <view class='my_record_right_add fh' wx:if="{{item.type==1}}">+</view>
+    <view class='my_record_right_add fh' wx:if="{{item.type==0}}">-</view>
+    <view class='my_record_right_price'>{{item.price}}</view>
+  </view>
+</view>
+
+</view>

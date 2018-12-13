@@ -1,0 +1,16 @@
+<form bindsubmit='vip_information'>
+<view class='information_all'>
+<view class='information_title'>填写会员信息</view>
+<view class='information_name informations'>
+
+<view class='input_name'>姓名</view>
+<input placeholder='请输入姓名' placeholder-class='myplaceholder' name='name' value='{{name}}'></input>
+</view>
+<view class='information_phone informations' >
+
+<view class='input_name'>手机号</view>
+<input placeholder='请输入手机号码' placeholder-class='myplaceholder' name='phone' value='{{phone}}'></input>
+</view>
+<button class='my_receive' form-type='submit'>立即领取</button>
+</view>
+</form>

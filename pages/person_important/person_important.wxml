@@ -1,0 +1,7 @@
+<view class='person_important'>
+<view class='person_important_top' style="background-image:url('https://www.vimi66.com/fruit/upload/act_img//20181025114026473024.png') " bindtap='my_vip'>
+<view class='card_name_big'>薇明商城会员卡</view>
+<view class='card_name_small'>WeiMing shopping small store</view>
+</view>
+<view class='person_important_bottom' bindtap='my_vip'>领取会员卡</view>
+</view>

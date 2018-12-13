@@ -1,0 +1,192 @@
+<view>
+  <form>
+    <view class='create_order'>
+      <view class='order_address_time'>
+        <view class='order_address_mid' bindtap='myAddress'>
+          <view class='order_address_mid_top'>
+            <view class='order_address_mid_left_bottom_name order_common'>{{userAddress.name}}</view>
+            <view class='order_address_mid_left_bottom_sex order_common' wx:if="{{userAddress.sex=='F'}}">(先生)</view>
+            <view class='order_address_mid_left_bottom_sex order_common' wx:if="{{userAddress.sex=='M'}}">(女士)</view>
+            <view class='order_address_mid_left_bottom_phone order_common'>{{userAddress.phone}}</view>
+
+
+
+          </view>
+          <view class='order_address_mid_bottom_hidden' wx:if="{{isNull}}">请添加地址</view>
+          <view class='order_address_mid_bottom'>
+            <view class='order_address_mid_bottom_left'>
+              {{userAddress.province}} {{userAddress.city}} {{userAddress.county}} {{userAddress.details_addr}}
+            </view>
+            <view class='order_address_mid_bottom_right'>
+              <image src='../../images/store/react6.png' />
+            </view>
+
+          </view>
+
+
+
+        </view>
+
+        <view class='order_address_mid_bottoma'>
+          <image src='../../images/store_del_line.png' />
+        </view>
+
+      </view>
+
+
+      <!-- 各类订单 -->
+
+      <view class='order_kinds'>
+        <view class='order_kinds_text'>商品详情</view>
+        <view class='order_kinds_list'>
+          <view class='order_kinds_list_item' wx:for='{{cartList}}' wx:key>
+            <view class='order_kinds_list_item_left'>
+              <image src='{{item.img_src}}' mode="aspectFill"></image>
+            </view>
+            <view class='order_kinds_list_item_right'>
+              <view class='order_kinds_list_item_right_name'>
+                {{item.commodity_name}}
+              </view>
+              <view class='order_kinds_list_item_right_bottom'>
+                <view class='order_kinds_list_item_end'>
+                  ￥{{item.commodity_price}}
+                </view>
+                <view class='order_kinds_list_item_right_num'>
+                  ×{{item.comm_num}}
+                </view>
+
+              </view>
+            </view>
+            <!--  -->
+          </view>
+        </view>
+        <view class='transportation_type'>
+          <view class='transportation_type_name'>运输方式</view>
+          <view class='my_type'>快递免邮</view>
+        </view>
+        <view class='transportation_type'>
+          <view class='transportation_type_name'>支付方式</view>
+          <view class='my_type' wx:if="{{init_type==0}}"  >微信支付</view>
+        <view class='my_type' wx:if="{{pay_type==0&&init_type!=0}}" bindtap='pay_style' >微信支付</view>
+          <view class='my_type' wx:if="{{pay_type==1&&init_type!=0}}"  bindtap='pay_style'>会员卡支付(余额￥{{c_user_vip.balance}})</view>
+        </view>
+        <view class='transportation_type'>
+          <view class='transportation_type_name'>优惠券</view>
+          <view class='my_type' style='color:red;' wx:if="{{coupons_null==1}}" >-￥{{t_coupons.coupons_price}}</view>
+          <view class='my_type' style='color:red;' wx:if="{{coupons_null==0}}" >-0.00</view>
+        </view>
+        <view class='order_remark'>
+          <view class='remark_left'>用户备注：</view>
+
+          <input type='text' class='order_remark_input' name="remarks" bindtap='order_remark_tap' placeholder='请输入您的需求' placeholder-class='order_input' bindblur="remarks"></input>
+
+        </view>
+      </view>
+
+      <!-- 商品总价 -->
+      <view class='order_subtotal_all'>
+        <view class='order_subtotal'>
+          <view class='order_subtotal_name'>商品总价</view>
+          <view class='order_subtotal_right'>
+            <view class='order_subtotal_right_icon'>￥</view>
+            <view class='order_subtotal_right_num'>{{sum_price}}</view>
+          </view>
+        </view>
+        <view class='order_express'>
+          <view class='order_express_name'>快递费用</view>
+          <view class='order_express_right'>
+            <view class='order_express_right_icon'>+￥</view>
+            <view class='order_express_right_num'>0</view>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- 总额/去支付 -->
+
+      <view class='rental_pay'>
+        <view class='rental_pay_left'>
+          ￥{{sum_price}}
+        </view>
+        <view class='rental_pay_right' bindtap='toPay'>
+          确认支付
+        </view>
+      </view>
+      </view>
+  </form>
+
+
+  <!-- 选择时间 -->
+  <view class='mask' catchtouchmove="preventTouchMove" catchtap='closemask' wx:if='{{selectTime}}'></view>
+  <view class='select_time' wx:if='{{selectTime}}'>
+    <view class='select_time_top'>
+      <view class='top_expain'>选择到店时间</view>
+      <view class='top_sure' hover-class='top_sure_hover' bindtap='top_sure'>确认</view>
+    </view>
+    <view class='select_time_content' value="{{value}}">
+      <view class='select_time_content_left'>
+        <view class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" wx:for='{{time_order}}' data-current="{{index}}" bindtap="selectWeek">{{item}}</view>
+      </view>
+
+      <scroll-view scroll-y="true" class='select_time_content_right' wx:if='{{current == 0}}'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{time_items}}" wx:key>
+            {{item}}
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time!=item}}" bindtap='check_sure' />
+            <!-- <radio value="{{item}}" data-time="{{item}}" wx:if="{{index>0}}" bindtap='check_sure'/> -->
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time==item}}" checked="true" bindtap='check_sure' />
+          </label>
+        </radio-group>
+      </scroll-view>
+      <scroll-view scroll-y="true" class='select_time_content_right' wx:if='{{current == 1}}'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{time_items}}" wx:key>
+            {{item}}
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time!=item}}" bindtap='check_sure' />
+            <!-- <radio value="{{item}}" wx:if="{{index>0}}" />
+            <radio value="{{item}}" wx:if="{{index==0}}" checked="true" /> -->
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time==item}}" checked="true" bindtap='check_sure' />
+          </label>
+        </radio-group>
+      </scroll-view>
+      <scroll-view scroll-y="true" class='select_time_content_right' wx:if='{{current == 2}}'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{time_items}}" wx:key>
+            {{item}}
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time!=item}}" bindtap='check_sure' />
+            <radio value="{{item}}" data-time="{{item}}" wx:if="{{time==item}}" checked="true" bindtap='check_sure' />
+
+          </label>
+        </radio-group>
+      </scroll-view>
+
+    </view>
+  </view>
+<!-- 支付方式 -->
+ <view class='pay' catchtouchmove="preventTouchMove" catchtap='closepay' wx:if='{{selectpay}}'></view>
+ <view class='select_pay' wx:if='{{selectpay}}'>
+ <view class='pay_title'>请选择支付方式</view>
+ <radio-group class="radio-group" bindchange="radioChange" >
+  <view wx:if="{{pay_type==0}}">
+    <label class="radio" >
+        <radio value="0" checked/>
+        <view  class='pay_name'>微信</view>
+    </label>
+     <label class="radio" >
+        <radio value="1" />
+        <view  class='pay_name'>会员卡(￥{{c_user_vip.balance}})</view>
+    </label>
+    </view>
+     <view  wx:if="{{pay_type==1}}">
+    <label class="radio" >
+        <radio value="0" />
+        <view  class='pay_name'>微信</view>
+    </label>
+     <label class="radio" >
+        <radio value="1" checked />
+        <view  class='pay_name' >会员卡(￥{{c_user_vip.balance}})</view>
+    </label>
+    </view>
+</radio-group>
+ </view>
+  </view>

@@ -1,0 +1,82 @@
+.coupon{
+  width: 688rpx;
+  height: 233rpx;
+  margin: 0 auto;
+  margin-top: 38rpx;
+   display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.coupon_left{
+  width: 504rpx;
+  height: 233rpx;
+  /* border:1px solid pink; */
+   display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.coupon_right{
+   width: 170rpx;
+  height: 233rpx;
+  /* border:1px solid pink; */
+}
+.content_left{
+  width: 185rpx;
+  height: 233rpx;
+   display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.content_right{
+  width: 350rpx;
+  height: 233rpx;
+}
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+
+.left_one{
+  font-size: 44rpx;
+  color: #f98281;
+  margin-top:10rpx;
+  margin-left: 20rpx;
+}
+.left_two{
+font-size: 68rpx;
+color: #f98281;   
+}
+.right_one{
+  font-size: 35rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  margin-top: 48rpx;
+  color: #353535;
+}
+.right_two{
+font-size: 22rpx;
+ height: 45rpx;
+  line-height: 45rpx;
+color: #9a9a9a;
+}
+.right_three{
+font-size: 22rpx;
+ height: 55rpx;
+  line-height: 55rpx;
+color:#6f6f6f;
+}
+.right_use{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 70rpx;
+  margin-left: 20rpx;
+}
+.right_use image{
+  width: 100%;
+  height: 100%;
+}

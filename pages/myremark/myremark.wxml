@@ -1,0 +1,6 @@
+
+<form class='allv' bindsubmit="formSubmit">
+
+<textarea class='myremark' placeholder='请输入口味、偏好等要求.....' placeholder-class='remarkPl' name='remark' value='{{remark}}'></textarea>
+<button class='mysubmit' form-type='submit'>点击提交</button>
+</form>

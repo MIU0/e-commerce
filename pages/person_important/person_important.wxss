@@ -1,0 +1,43 @@
+page{
+  background: #f8f8f8;
+}
+.person_important{
+  width: 90%;
+  height: 500rpx;
+  background: #fff;
+  margin: auto;
+  margin-top: 38rpx;
+  border-radius:10px; 
+}
+.person_important_top{
+  /* border: 1px solid red; */
+  width: 90%;
+  height: 322rpx;
+  border-radius: 10px;
+  margin: auto;
+   background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+.card_name_big{
+  color: #fff;
+  font-size: 38rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  letter-spacing: 4rpx;
+}
+.card_name_small{
+  color: #fff;
+  font-size: 18rpx;
+  margin-left: 30rpx;
+}
+
+.person_important_bottom{
+/* border: 1px solid red; */
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: auto;
+  font-size: 30rpx;
+}

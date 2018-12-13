@@ -1,0 +1,106 @@
+<view>
+
+  <view class='accounts'>
+     <view class='accounts_status' style="background-image: url('https://www.vimi66.com/shop/upload/act_img//20180929140950234435.png') ">
+     
+       <view class='accounts_status_top'>
+        
+         <view class='accounts_status_text'>{{myaccounts_shops.status_name}}</view>
+         <view class='accounts_status_tips'>一段时间不支付订单会自动取消</view>
+       </view>
+       
+     </view>
+
+    <!-- 订单商品 -->
+     <view class='accounts_status_bottom' >
+          <view wx:if="{{myaccounts_shops.status < 2}}" class="a3_bottom1 " data-current="{{myaccounts_shops.status}}" bindtap='quxiao' data-order_id='{{myaccounts_shops.order_id}}' >取消订单 </view>
+      <view wx:if="{{myaccounts_shops.status==0}}" class="a3_bottom2 " data-order_id='{{myaccounts_shops.order_id}}' bindtap='mypay'>支付 </view>
+      <!-- <view wx:if="{{myaccounts_shops.status==1}}" class="a3_bottom3 ">再来一单 </view> -->
+      <view wx:if="{{myaccounts_shops.status==2}}" class="a3_bottom5 " bindtap='refund' data-order_id='{{myaccounts_shops.order_id}}'> 退款</view>
+      <view wx:if="{{myaccounts_shops.status==2}}" class="a3_bottom4 ">提醒发货 </view>
+      <view wx:if="{{myaccounts_shops.status==3}}" class="a3_bottom6 " bindtap='sure'>确认收货 </view>
+       </view>
+    <view class='accounts_shops' >
+      <!-- 店名 -->
+       <view class='accounts_shops_name'></view>
+       <!-- 商品 -->
+       <block wx:for="{{myaccounts_shops.commodity_infoList}}" wx:key>
+       <view class='accounts_shops_list' >
+         <view class='accounts_shops_list_item' >
+          <view class='accounts_shops_list_item_name'>{{item.commodity_name}}</view>
+          <view class='accounts_shops_list_item_right'>
+            <view class='accounts_shops_list_item_sign_num'>
+                <view class='accounts_shops_list_item_sign_img'>
+                   <image src='../../images/store/multiply.png'/>
+                 </view>
+                 <view class='accounts_shops_list_item_num'>{{item.comm_num}}</view>
+             </view>
+            <view class='accounts_shops_list_item_icon_price'>
+            <view class='accounts_shops_list_item_icon'>￥</view>
+             <text class='accounts_shops_list_item_price'>{{item.commodity_price}}</text>
+            </view>
+          </view>
+         </view>
+       </view>
+           </block>
+       <!-- 合计 -->
+       <view class='accounts_total'>
+         <view class='accounts_total_left' bindtap='my_phone'>
+           <view class='accounts_total_left_icon'>
+             <image src='../../images/store/ring.png'/>
+           </view>
+           <text class='accounts_total_left_text'>商家电话</text>
+         </view>
+         <view class='accounts_total_right'>
+           <view class='accounts_total_right_add'>合计:</view>
+           <view class='accounts_total_right_icon_price'>
+             <view class='accounts_total_right_icon'>￥</view>
+             <text class='accounts_total_right_price'>{{myaccounts_shops.real_price}}</text>
+           </view>
+         </view>
+       </view>
+    </view>
+
+   <!-- 配送地址 -->
+    <view class='accounts_address' >
+     <view class='accounts_shops_list'>
+       <view class='accounts_address_item'>
+           <view class='accounts_address_title'>
+           配送信息
+         </view>
+       </view>
+       <view class='accounts_address_item'>
+           <view class='accounts_address_item_left'>
+             订单编号:
+           </view>
+           <view class='accounts_address_item_right'>
+             {{myaccounts_shops.order_id}}
+           </view>
+         </view>
+         <!-- <view class='accounts_address_item'>
+           <view class='accounts_address_item_left'>
+             配送时间:
+           </view>
+           <view class='accounts_address_item_right'>
+             {{ps_time}}
+           </view>
+         </view> -->
+         
+         <view class='accounts_address_items'>
+           <view class='accounts_address_item_left'>
+             送货信息:
+           </view>
+           <view class='accounts_address_item_right accounts_right' >
+           <view class='accounts_address_item_right_info'>
+             <view class='accounts_address_item_right_name accounts_address_common'>{{deliver.name}}</view>
+             <view class='accounts_address_item_right_phone accounts_address_common'>{{deliver.phone}}</view>
+             <view class='accounts_address_item_right_address'>{{deliver.province}}{{deliver.city}}{{deliver.county}}{{deliver.details_addr}}</view>
+           </view>
+           </view>
+         </view>
+
+       </view>
+    </view>
+
+  </view>
+</view>

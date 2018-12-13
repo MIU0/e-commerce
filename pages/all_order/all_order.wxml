@@ -1,0 +1,73 @@
+<view class='order_body'>
+  <view class='order_top'>
+    <view class="order_top_list {{currentTab==9 ? 'on' : ''}}" bindtap='order' data-current="9">全部</view>
+    <view class="order_top_list {{currentTab==0 ? 'on' : ''}}" bindtap='order' data-current="0">待付款</view>
+    <!-- <view class="order_top_list {{currentTab==1 ? 'on' : ''}}" bindtap='order' data-current="1">待接单</view> -->
+    <view class="order_top_list {{currentTab==2 ? 'on' : ''}}" bindtap='order' data-current="2">待发货</view>
+    <view class="order_top_list {{currentTab==3 ? 'on' : ''}}" bindtap='order' data-current="3">待收货</view>
+    <view class="order_top_list {{currentTab==8 ? 'on' : ''}}" bindtap='order' data-current="8">退款</view>
+  </view>
+  <view class="order_content1 " wx:if="{{my_choose==1}}">
+    <image src='../../images/no_order.png'></image>
+    <view class='content_ts'>您还没有相关订单</view>
+  </view>
+  <block class="order_content" data-current='1' wx:for='{{my_orders}}' wx:key >
+    <view class='order_content_a'>
+      <view data-eat_type="{{item.eat_type}}" bindtap='order_confirm' data-order_id='{{item.order_id}}' data-status='{{item.status}}'>
+        <view class='order_content_a1' >
+          <view class='a1_time'>{{item.reserved3}}</view>
+
+          <view class='a1_status' data-eat_type="{{item.eat_type}}">{{item.status_name}}</view>
+          <!-- <view class='order_type' wx:if='{{item.eat_type==1}}'>（到店）</view>
+          <view class='order_type' wx:if='{{item.eat_type==0}}'>（外卖）</view> -->
+        </view>
+        <block wx:for="{{item.commodity_infoList}}" wx:key>
+          <view class='order_content_a2' data-order_id='{{item.order_id}}'>
+            <view class='a2_left'>
+              <image src='{{item.img_src}}' mode="aspectFill"></image>
+            </view>
+            <view class='a2_right'>
+              <view class='a2_right1'>
+                {{item.commodity_name}}
+              </view>
+              <view class='a2_right2'>
+                <view>￥{{item.commodity_price}}</view>
+                <view class='a2_right2_num'>×{{item.comm_num}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='other_price' wx:if='{{item.eat_type==0}}'>
+          <view class='other_text'>包装费：</view>
+          <view class='other_pr'>￥{{item.t_order_address.packing_price}}</view>
+        </view>
+        <view class='other_price' wx:if='{{item.eat_type==0}}'>
+          <view class='other_text'>运费：</view>
+          <view class='other_pr'>￥{{item.t_order_address.distribution_price}}</view>
+        </view>
+        <view class='order_content_a3'>
+          <text>￥{{item.real_price}}</text>
+        </view>
+      </view>
+
+      <view class='a3_button'>
+        <view wx:if="{{item.status < 2}}" class="a3_bottom1 " data-current="{{item.status}}" bindtap='quxiao' data-order_id='{{item.order_id}}'>取消订单 </view>
+
+
+
+        <view wx:if="{{item.status==0}}" class="a3_bottom2 " data-eat_type='{{item.eat_type}}' data-order_id='{{item.order_id}}' bindtap='mypay'>支付 </view>
+        <!-- <view wx:if="{{item.status==1}}" class="a3_bottom3 " bindtap='onemore'>再来一单 </view> -->
+        <view wx:if="{{item.status==2}}" class="a3_bottom5 " data-current="{{item.status}}" bindtap='refund' data-order_id='{{item.order_id}}'> 退款</view>
+        <view wx:if="{{item.status==2}}" class="a3_bottom4 " data-current="2">提醒发货 </view>
+         <view wx:if="{{item.status==3}}" class="a3_bottom5 " bindtap='my_logs' data-current="3" data-order_id='{{item.order_id}}'> 查看物流</view>
+        <view wx:if="{{item.status==3}}" class="a3_bottom6 " data-current="3" bindtap='sure' data-order_id='{{item.order_id}}'>确认收货 </view>
+        <view wx:if="{{item.status>7}}" class="a3_bottom7 " data-current="{{item.status}}" bindtap='refund' data-order_id='{{item.order_id}}'>查看详情 </view>
+
+      </view>
+    </view>
+
+    <modal hidden="{{hiddenmodalput}}" title="请输入取消订单原因" data-status="{{item.status}}" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
+      <input type='text' placeholder="请输入内容"></input>
+    </modal>
+  </block>
+</view>

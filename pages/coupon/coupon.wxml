@@ -1,0 +1,24 @@
+<scroll-view scroll-y class='scroll-view-y' style='height:99vh;'>
+  <view class='coupon' style="background-image: url('https://www.vimi66.com/shop/upload/act_img//20181031170027430293.png');background-size:100% 100%;" wx:for="{{my_coupon}}" wx:key>
+    <view class='coupon_left'>
+      <view class='content_left'>
+        <view class='left_one'>￥</view>
+        <view class='left_two'>{{item.t_coupons.coupons_price}}</view>
+      </view>
+      <view class='content_right'>
+        <view class='right_one'>新用户满{{item.t_coupons.qs_je}}可用</view>
+        <view class='right_two'>有效期至：{{item.over_time}}</view>
+        <view class='right_three'>全店可用 通用券</view>
+      </view>
+    </view>
+    <view class='coupon_right'>
+      <view class='right_use' wx:if="{{item.status==0}}">
+        <image src='../../images/coupon_qsy.png'></image>
+      </view>
+      <view class='right_use' wx:if="{{item.status==1}}">
+        <image src='../../images/coupon_ysy.png'></image>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

@@ -1,0 +1,73 @@
+page{
+  background: #f8f8f8;
+}
+.vip_card{
+  width: 100%;
+  height: 380rpx;
+  background: #fff;
+  margin-bottom: 20px;
+  display: flex;
+}
+.person_important_top{
+  width: 80%;
+  height: 322rpx;
+  border-radius: 10px;
+  margin:auto;
+  margin-top: 20px;
+   background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+.card_name_big{
+  color: #fff;
+  font-size: 38rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  letter-spacing: 4rpx;
+}
+.card_name_small{
+  color: #fff;
+  font-size: 18rpx;
+  margin-left: 30rpx;
+}
+
+
+.vip_details{
+    width: 88%;
+  /* height: 55vh; */
+  background: #fff;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.vip_card_name{
+  margin-top: 10px;
+}
+.vip_card_phone{
+  margin-bottom: 22px;
+}
+.my_vip{
+width: 88%;
+height: 78rpx;
+line-height: 78rpx;
+/* border: 1px solid red; */
+display: flex;
+flex-direction: row;
+align-items: center;
+font-size: 30rpx;
+/* margin-bottom: 10rpx; */
+}
+.deposit{
+width: 88%;
+height: 70rpx;
+font-size: 30rpx;
+line-height: 70rpx;
+background: #fd5673;
+color: #fff;
+text-align: center;
+border-radius: 10rpx;
+margin-bottom: 20px;
+margin-top: 20px;
+}

@@ -1,0 +1,69 @@
+<view>
+ <view class='person_center'>
+    <image src='../../images/store/persons.png' class='person_center_img'/>
+ </view>
+ <view class='person_center_top'>
+   <image src='../../images/store/react.png'/>
+   <view class='person_center_top_logo' wx:if="{{my_person==1}}" bindgetuserinfo="getUserInfo" >
+      <view class="user-avatar-kuang" >
+          <image src="../../images/mine.png" class="user-avatar"></image> 
+        </view>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点击登录 </button> 
+   </view>
+   <view class='person_center_top_logo'>
+      <view class="user-avatar-kuang" >
+          <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image> 
+        </view>
+        <text class="mine_logo_name" >{{userInfo.nickName}}</text>
+   </view>
+   <view class='coupon_red_balance'>
+     <view class='coupon coupon_common' bindtap='coupon'>
+       <view class='coupon_num' style=''>
+         <text class='coupon_num_text' style='margin-left:14rpx;'>{{person_information.coupons_num}}</text>
+         <view class='coupon_num_unit'>个</view>
+       </view>
+       <view class='coupon_name'>优惠券</view>
+     </view>
+     <view class='coupon coupon_common' bindtap='red_packet'>
+       <view class='coupon_num'>
+         <text class='coupon_num_text'>0</text>
+         <view class='coupon_num_unit'>个</view>
+       </view>
+       <view class='coupon_name'>红包</view>
+     </view>
+     <view class='coupon coupon_common' bindtap='mymoney'>
+       <view class='coupon_num'>
+         <text class='coupon_num_text'>{{balance}}</text>
+         <view class='coupon_num_unit'>元</view>
+       </view>
+       <view class='coupon_name' >余额</view>
+     </view>
+   </view>
+ </view> 
+
+ <view class='person_center_bottom'>
+    <image src='../../images/store/react2.png'/>
+    <view class='person_center_bottom_list'>
+        <view class='person_center_bottom_list_item' bindtap='vip' >
+           <view class='person_center_bottom_list_item_name'>会员充值</view>
+           <view class='person_center_bottom_list_item_right'>
+             <image src='../../images/store/react3.png'/>
+           </view>
+        </view>
+         <view class='person_center_bottom_list_item' bindtap='my_address'>
+           <view class='person_center_bottom_list_item_name'>我的地址</view>
+           <view class='person_center_bottom_list_item_right'>
+             <image src='../../images/store/react3.png'/>
+           </view>
+        </view>
+         <!-- <view class='person_center_bottom_list_item' bindtap='seller'>
+           <view class='person_center_bottom_list_item_name'>退货退款</view>
+           <view class='person_center_bottom_list_item_right'>
+             <image src='../../images/store/react3.png'/>
+           </view>
+        </view> -->
+    </view>
+ </view>
+ <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>  -->
+
+</view>

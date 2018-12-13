@@ -1,0 +1,8 @@
+<view class='mymoney' style='background-image: url(../../images/mymoney.png);background-size:100% 100%;'>
+<view class='allmoney'>
+<view class='allmoney_f'>￥</view>
+<view class='allmoney_p'>0.00</view>
+</view>
+<view class='mybalance'>余额</view>
+<view class='recharge' bindtap='my_click'>点击充值</view>
+</view>

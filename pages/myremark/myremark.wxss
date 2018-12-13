@@ -1,0 +1,26 @@
+.allv{
+  width: 100%;
+}
+.myremark{
+  width: 682rpx;
+  height: 404rpx;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  margin: 0 auto;
+margin-top: 20rpx;
+padding: 20rpx 10rpx;
+
+}
+.remarkPl{
+  font-size: 30rpx;
+  color:#e2e2e2; 
+ 
+}
+.mysubmit{
+  width: 702rpx;
+  height: 70rpx;
+  line-height:70rpx; 
+  margin: 0 auto;
+  margin-top: 20rpx;
+  color: #5e5e5e
+}

@@ -1,0 +1,13 @@
+.my_logs{
+  width: 100%;
+  height: 75rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 28rpx;
+  border: 1px solid #eee;
+}
+.logs_company{
+  margin-left: 20rpx;
+}
